@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadget Search - Doraemon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css"> 
+
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: 'Hind Siliguri', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Main Container for the Search Card --- */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 85vh;
+            background-image: linear-gradient(to bottom, #fff, #f0f8ff); /* Slight blue tint for Doraemon */
+        }
+
+        /* --- The Card Design (Retina Style) --- */
+        .login-card {
+            background-color: #F9EFEF; /* Keeping the requested pink/beige bg */
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #f0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .card-logo {
+            width: 180px;
+            margin-bottom: 30px;
+        }
+
+        /* --- Custom Input Pills --- */
+        .custom-input-group {
+            background-color: white;
+            border-radius: 50px;
+            padding: 5px 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .custom-input-group:focus-within {
+            border-color: #0094DA; /* Doraemon Blue focus */
+            box-shadow: 0 2px 8px rgba(0,148,218,0.2);
+        }
+
+        .input-icon {
+            color: #999;
+            font-size: 18px;
+            width: 30px;
+            text-align: center;
+            border-right: 1px solid #eee;
+            margin-right: 10px;
+            padding-right: 10px;
+        }
+
+        .custom-input-group input {
+            border: none;
+            outline: none;
+            width: 100%;
+            color: #555;
+            background: transparent;
+            font-size: 16px;
+        }
+
+        .custom-input-group input::placeholder {
+            color: #888;
+            font-weight: 400;
+        }
+
+        /* --- Button Styling --- */
+        .btn-retina {
+            background-color: #0094DA; /* Changed from Maroon to Doraemon Blue */
+            color: white;
+            border-radius: 50px;
+            padding: 12px 0;
+            width: 60%;
+            font-weight: 600;
+            border: none;
+            margin-top: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,148,218,0.3);
+        }
+
+        .btn-retina:hover {
+            background-color: #007bb5;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- Result Card Styling (Hidden by default) --- */
+        #gadgetResult {
+            display: none; /* Hidden initially */
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .gadget-img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        .result-title {
+            color: #0094DA;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .result-desc {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-reset {
+            background-color: transparent;
+            color: #888;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .btn-reset:hover {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar-sticky">
+    <div class="nav-wrapper">
+        <div class="desktop-nav">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Doraemon Logo" class="nav-logo">
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="Doraemon02-home.html" class="nav-link">Home</a>
+                <a href="character.html" class="nav-link">Characters</a>
+                <a href="gadget.html" class="nav-link active">Gadgets</a> <a href="#" class="nav-link">Movies</a>
+                <div class="icon-btn cart-btn"><i class="fa-solid fa-bell"></i></div>
+                <a href="#" class="nav-link">Fun Facts</a>
+                <button class="btn-login"><a href="doraemon-join.html"></a>Join Club</button>
+            </div>
+        </div>
+
+        <div class="mobile-header">
+            <a href="#"><img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Logo" class="mobile-logo"></a>
+            <div class="mobile-actions">
+                <button class="btn-lms-mobile">Watch</button>
+                <button id="mobileMenuOpen" class="mobile-toggle-btn">
+                  <i class="fa-solid fa-bars" style="font-size:24px;"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-sidebar" id="mobileSidebar">
+            <button class="close-sidebar-btn" id="mobileMenuClose"><i class="fa-solid fa-xmark"></i></button>
+            <div class="sidebar-logo">
+                <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Logo">
+            </div>
+            <div class="sidebar-links">
+                <a href="index.html" class="sidebar-link">Home</a>
+                <a href="#" class="sidebar-link">Characters</a>
+                <a href="#" class="sidebar-link active">Gadgets</a>
+                <a href="#" class="sidebar-link">Movies</a>
+                <a href="#" class="sidebar-btn-login">Join Club</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    
+
+
+<div class="container main-content">
+        <div class="login-card">
+    <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Doraemon Logo" class="card-logo">
+    
+    <form id="resultForm">
+        <h5 style="margin-bottom: 25px; color:#555;">Find a Secret Gadget!</h5>
+        <div class="custom-input-group">
+            <div class="input-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <input type="text" placeholder="Gadget Name (e.g. Door)" id="gadgetName" required>
+        </div>
+        <div class="custom-input-group">
+            <div class="input-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+            <input type="text" placeholder="Your Name" id="userName" required>
+        </div>
+        <button type="submit" class="btn-retina">Search Gadget</button>
+    </form>
+
+    <div id="loadingState" style="display: none; padding: 40px 0;">
+        <i class="fa-solid fa-bell fa-spin" style="font-size: 50px; color: #FFD700; margin-bottom: 20px;"></i>
+        <p style="font-weight: 600; color: #0094DA;">Doraemon is searching his pocket...</p>
+    </div>
+
+    <div id="gadgetResult" style="display: none;">
+        <div style="margin-bottom:10px;">
+            <span style="background:#e3f2fd; color:#0094DA; padding: 5px 15px; border-radius:15px; font-size:12px; font-weight:bold;">RESULT FOUND</span>
+        </div>
+        <img src="" alt="Gadget" class="gadget-img" id="resultImg" style="width:150px; height:150px; margin-bottom:15px;">
+        <h2 class="result-title" id="resultTitle" style="color:#0094DA;"></h2>
+        <p class="result-desc" id="resultDesc"></p>
+        <button class="btn-retina" style="width: 80%; margin-bottom: 10px;">Use Gadget</button>
+        <br>
+        <button class="btn-reset" onclick="resetSearch()">Search Again</button>
+    </div>
+
+    <div id="errorState" style="display: none; padding: 20px;">
+        <i class="fa-solid fa-face-frown" style="font-size: 50px; color: #cc0000; margin-bottom: 15px;"></i>
+        <h4 style="color: #cc0000;">Oh no! Empty Pocket!</h4>
+        <p>Doraemon couldn't find that gadget. Maybe a mouse stole it?</p>
+        <button class="btn-reset" onclick="resetSearch()">Try Different Keyword</button>
+    </div>
+</div>
+</div>
+
+<script>
+    // --- 1. Mobile Menu Logic (Copied from previous) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileSidebar = document.getElementById('mobileSidebar');
+
+        if(mobileMenuOpen) mobileMenuOpen.addEventListener('click', () => mobileSidebar.classList.add('open'));
+        if(mobileMenuClose) mobileMenuClose.addEventListener('click', () => mobileSidebar.classList.remove('open'));
+    });
+
+    // --- 2. Search Logic ---
+
+    const form = document.getElementById('resultForm');
+    const loader = document.getElementById('loadingState');
+    const resultDiv = document.getElementById('gadgetResult');
+    const errorDiv = document.getElementById('errorState');
+
+    const gadgets = {
+        'door': { name: 'Anywhere Door', img: 'https://fbi.cults3d.com/uploaders/13760929/illustration-file/eb9818a0-9671-4f9d-98ad-94a6fff0abe0/20120705103939_AS5fR.thumb.600_0_display_large.jpeg', desc: 'Go anywhere instantly!' },
+        'copter': { name: 'Bamboo Copter', img: 'https://cdn.coconuts.co/coconuts/wp-content/uploads/2016/11/doraemon_propeller_hat.jpg', desc: 'Fly through the sky!' },
+        'time': { name: 'Time Machine', img: 'https://preview.redd.it/time-travel-in-doraemon-is-so-cool-v0-wy1g2u79bc3f1.png?auto=webp&s=bdc7d9fd6ab36e490c7b36bb868c5560c0066102', desc: 'Travel through time!' }
+    };
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const gadgetText = document.getElementById('gadgetName').value.toLowerCase();
+        const userText = document.getElementById('userName').value;
+
+        // Hide form, show loader
+        form.style.display = 'none';
+        loader.style.display = 'block';
+
+        // Wait 2 seconds (the logic "searching" delay)
+        setTimeout(() => {
+            loader.style.display = 'none';
+
+            let selectedGadget = null;
+            if(gadgetText.includes('door')) selectedGadget = gadgets.door;
+            else if(gadgetText.includes('copter')) selectedGadget = gadgets.copter;
+            else if(gadgetText.includes('time')) selectedGadget = gadgets.time;
+
+            if(selectedGadget) {
+                // Show Result
+                document.getElementById('resultTitle').innerText = selectedGadget.name;
+                document.getElementById('resultImg').src = selectedGadget.img;
+                document.getElementById('resultDesc').innerHTML = `Hello <strong>${userText}</strong>! Doraemon found the ${selectedGadget.name}.`;
+                resultDiv.style.display = 'block';
+            } else {
+                // Show Error if no keywords match
+                errorDiv.style.display = 'block';
+            }
+        }, 1500); 
+    });
+
+    function resetSearch() {
+        form.reset();
+        form.style.display = 'block';
+        resultDiv.style.display = 'none';
+        errorDiv.style.display = 'none';
+        loader.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1127 @@
+/* --- Variables & Reset --- */
+:root {
+    --primary-red: #941b20;       /* Retina Brand Red */
+    --hover-red: #7a151a;
+    --glow-color: rgba(148, 27, 32, 0.6); /* For the glow effect */
+    --text-black: #111111;
+    --text-gray: #444444;
+    --bg-light: #f4f6f9;
+    --border-gray: #dddddd;
+    --font-main: 'Hind Siliguri', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-light);
+    color: var(--text-black);
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Navbar --- */
+.navbar {
+    background: #fff;
+    height: 80px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    height: 50px; /* Adjust based on actual logo */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-black);
+    font-weight: 600; /* Bolder font as requested */
+    font-size: 17px;
+    padding: 5px 0;
+    transition: color 0.2s;
+}
+
+.nav-item:hover {
+    color: var(--primary-red);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    font-size: 20px;
+    color: var(--text-black);
+}
+
+.icon-btn.whatsapp {
+    color: #25D366;
+    font-size: 26px;
+}
+
+.login-btn {
+    background-color: var(--text-black);
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #333;
+}
+
+.retina-link {
+  /* Basic styling to match the screenshot */
+  text-decoration: none;
+  color: black;
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 500;
+  position: relative; /* Needed to anchor the underline */
+  transition: color 0.3s ease;
+}
+
+/* This creates the underline */
+.retina-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Thickness of the line */
+  bottom: -2px; /* Position it just below the text */
+  left: 0;
+  background-color: #941b20; /* The Retina red color */
+  
+  /* Start hidden */
+  transform: scaleX(0); 
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+/* What happens on hover */
+.retina-link:hover {
+  color: #780A0A; /* Darker red on hover */
+}
+
+.retina-link:hover::after {
+  /* Show the line */
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* --- Search Section --- */
+.search-section {
+    padding: 30px 0 10px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-black);
+}
+
+.search-bar-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border: 1px solid var(--border-gray);
+    border-radius: 50px; /* Rounded pill shape */
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.search-input:focus {
+    border-color: var(--primary-red);
+}
+
+.search-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--text-gray);
+    cursor: pointer;
+}
+
+/* --- Filter Section --- */
+.filter-section {
+    padding: 10px 0 30px;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.filter-btn {
+    padding: 8px 18px;
+    background: #fff;
+    border: 1px solid var(--border-gray);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--text-gray);
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--bg-light);
+    color: var(--text-black);
+    border-color: var(--text-black);
+}
+
+.filter-select {
+    padding: 8px 15px;
+    border: 1px solid var(--border-gray);
+    border-radius: 5px;
+    background: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- Course Cards --- */
+.courses-section {
+    padding-bottom: 60px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Wider cards */
+    gap: 30px;
+}
+
+.course-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Soft shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-body {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.course-title-small {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.course-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-black);
+    line-height: 1.4;
+}
+
+.course-features {
+    list-style: none;
+}
+
+.course-features li {
+    font-size: 15px;
+    color: var(--text-black); /* Darker text for readability */
+    margin-bottom: 12px;
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    line-height: 1.5;
+}
+
+.course-features li i {
+    font-size: 6px; /* Tiny bullet point */
+    margin-top: 9px;
+    color: var(--text-black);
+}
+
+/* Card Footer & Buttons */
+.card-footer {
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    background: #fff;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    transition: all 0.3s;
+}
+
+.btn-outline {
+    background: #f0f0f0;
+    color: var(--text-black);
+}
+
+.btn-outline:hover {
+    background: #e0e0e0;
+}
+
+.btn-primary {
+    background: var(--primary-red);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- THE GLOW EFFECT --- */
+.glow-effect:hover {
+    background: var(--hover-red);
+    box-shadow: 0 0 15px var(--glow-color); /* Creates the glow */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .course-grid { grid-template-columns: 1fr; }
+    .search-input { width: 90%; }
+}
+
+
+/* Card Footer */
+.card-footer {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: #fff5f5;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 10px rgba(148, 27, 32, 0.3);
+}
+
+
+
+/* --- THE CARD --- */
+.course-card {
+    background: white;
+    transition: all 0.3s ease; /* Smooth transition for everything */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Glow/Background change on card hover */
+.course-card:hover {
+    background-color: #fff1f1; /* Light red glow effect */
+    transform: translateY(-5px);
+}
+
+/* --- THE BUTTONS --- */
+
+/* Left Button: "Program View" */
+.btn-outline {
+    background: #fffafa;
+    border: 1px solid rgba(120, 10, 10, 0.3);
+    color: black;
+}
+
+.btn-outline:hover {
+    background-color: #22c55e !important; /* Turns Green */
+    border-color: #22c55e !important;
+    color: white !important;
+}
+
+/* Right Button: "Enroll Now" */
+.btn-primary {
+    background: #780A0A; /* Deep Retina Red */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #780A0A;
+    box-shadow: 0 4px 15px rgba(120, 10, 10, 0.2);
+}
+
+/* Container Spacing */
+.search-filter-container {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Search Box Styling */
+.search-box-wrapper {
+    position: relative;
+    border: 1px solid #780A0A; /* The signature red border */
+    border-radius: 8px;
+    background-color: #fff1f1; /* Light red background */
+    overflow: hidden;
+}
+
+.retina-search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+    color: #444;
+}
+
+/* Filter Chips (Buttons) */
+.filter-buttons-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.filter-chip {
+    padding: 8px 16px;
+    background-color: #fff1f1; /* Light red background */
+    border: 1px solid #780A0A;
+    border-radius: 8px;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Hover & Active States */
+.filter-chip:hover, .filter-chip.active {
+    background-color: #780A0A; /* Turns Dark Red */
+    color: white; /* Text turns white */
+}
+
+/* Dropdown Arrow sizing */
+.filter-chip i {
+    font-size: 12px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    .retina-search-input {
+        font-size: 12px;
+        padding: 10px;
+    }
+    .filter-chip {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+
+/* --- Pagination & Course Section --- */
+.courses-section-pagination {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+/* Filter Tags */
+.filter-tag {
+    background-color: #fff5f5;
+    border: 1px solid #780A0A;
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-tag:hover, .filter-tag.active {
+    background-color: #780A0A;
+    color: white;
+}
+
+.filter-tag.dropdown {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Grid Layout */
+.course-grid-layout {
+    display: grid;
+    gap: 48px 30px; /* Vertical gap 48, Horizontal 30 */
+    margin-top: 60px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .course-grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .course-grid-layout {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Card Styling */
+.course-item {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s;
+    border: 1px solid #f0f0f0;
+}
+
+.course-item:hover {
+    background-color: #fef2f2; /* red-50 */
+}
+
+/* Floating Icon */
+.card-floating-icon {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.icon-circle {
+    width: 56px;
+    height: 56px;
+    background-color: #780A0A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid white; /* Optional: creates the "cutout" look */
+}
+
+.icon-circle img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+/* Card Content */
+.card-main-link {
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #e5e7eb;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    overflow: hidden;
+}
+
+.card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 24px 20px 10px;
+}
+
+.course-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #2F327D;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.course-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.course-specs li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #374151; /* gray-700 */
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.spec-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #374151;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+}
+
+/* Buttons Footer */
+.card-footer {
+    padding: 16px 20px 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-details {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff5f5; /* light red bg */
+    border: 1px solid rgba(120, 10, 10, 0.3);
+    border-radius: 6px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-details:hover {
+    background-color: #22c55e; /* green-500 */
+    border-color: #22c55e;
+    color: white;
+}
+
+.btn-enroll-now {
+    flex: 1;
+    background-color: #780A0A;
+    color: white;
+    border: 1px solid #780A0A;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-enroll-now:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Pagination UI */
+.pagination-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Container to hold the buttons in the middle */
+#pagination-controls {
+    display: flex;
+    justify-content: center; /* This centers the control in the middle */
+    align-items: center;
+    flex-wrap: wrap;       /* This makes it responsive on small screens */
+    gap: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+/* Individual Button Design */
+.pagination-btn {
+    min-width: 40px;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #780A0A;
+    background-color: white;
+    color: #780A0A;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Active Page Style */
+.pagination-btn.active {
+    background-color: #780A0A;
+    color: white;
+}
+
+/* Disabled Arrow Style */
+.pagination-btn:disabled {
+    border-color: #ccc;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Hover Effect for Desktop */
+@media (min-width: 768px) {
+    .pagination-btn:hover:not(:disabled):not(.active) {
+        background-color: #fff5f5;
+        transform: translateY(-2px);
+    }
+}
+
+/* Responsive adjustment for very small phones */
+@media (max-width: 400px) {
+    .pagination-btn {
+        min-width: 35px;
+        height: 35px;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: #374151;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.page-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.page-btn.active {
+    background-color: #780A0A;
+    color: white;
+    border-color: #780A0A;
+}
+
+
+/* --- Navbar Styles --- */
+:root {
+    --primary-red: #780A0A;
+    --hover-red: #921313;
+    --success-green: #23B100;
+    --text-black: #000000;
+    --white: #ffffff;
+    --font-main: 'Hind Siliguri', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 0;
+}
+
+/* Sticky Wrapper */
+.navbar-sticky {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+    transition: background-color 0.3s;
+}
+
+.nav-wrapper {
+    width: 100%;
+    max-width: 1550px;
+    margin: 0 auto;
+}
+
+/* --- Desktop Navbar --- */
+.desktop-nav {
+    display: none; /* Hidden on mobile */
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+}
+
+.nav-logo {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.125rem; /* text-lg to xl */
+    font-weight: 500;
+    color: var(--text-black);
+    transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-red);
+}
+
+.icon-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn-login {
+    background-color: var(--primary-red); /* bg-primary usually refers to brand color */
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: var(--hover-red);
+}
+
+/* --- Mobile Header --- */
+.mobile-header {
+    display: flex; /* Visible on mobile */
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.mobile-logo {
+    width: 120px;
+    height: auto;
+}
+
+.mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-lms-mobile {
+    background: white;
+    color: #7f1d1d; /* red-900 */
+    border: 2px solid #7f1d1d;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-lms-mobile:hover {
+    background: var(--hover-red);
+    color: white;
+    border-color: var(--hover-red);
+}
+
+.mobile-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    height: 21px;
+    width: 21px;
+    color: black;
+}
+
+/* --- Mobile Sidebar Menu --- */
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000;
+    padding: 16px;
+    transform: translateX(100%); /* Hidden by default */
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-sidebar.open {
+    transform: translateX(0); /* Visible */
+}
+
+.close-sidebar-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: black;
+    height: 22px;
+    width: 22px;
+}
+
+.sidebar-logo img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 2px solid #eee;
+}
+
+.sidebar-link {
+    padding: 16px 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-black);
+    border-bottom: 2px solid #eee;
+}
+
+.sidebar-link.active {
+    color: var(--primary-red);
+}
+
+.sidebar-btn-call {
+    margin-top: 20px;
+    background-color: var(--success-green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.125rem;
+    gap: 8px;
+}
+
+.sidebar-btn-login {
+    margin-top: 10px;
+    background-color: var(--primary-red);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* --- Responsive Breakpoints --- */
+@media (min-width: 1024px) {
+    /* Desktop Mode */
+    .desktop-nav {
+        display: flex;
+    }
+    .mobile-header {
+        display: none;
+    }
+    .mobile-sidebar {
+        display: none; /* Never show sidebar on desktop even if active class is there */
+    }
+}
+
+
+
+/* --- Main Footer Styles --- */
+.main-footer {
+    background: radial-gradient(circle at center, #8a0e12, #550808); /* Deep red gradient */
+    padding: 60px 0 20px 0;
+    color: #ffffff;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Mobile default */
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr); /* Desktop grid */
+        gap: 20px;
+    }
+}
+
+.footer-col h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* Logo and App Section */
+.footer-logo img {
+    height: 50px;
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+
+.app-download-text {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.play-store-img {
+    height: 45px;
+    width: auto;
+}
+
+/* Contact and Social Icons */
+.contact-number p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.contact-number span a {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+/* Copyright Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}

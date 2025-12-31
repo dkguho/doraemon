@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Doraemon Fan Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Main Login Card Area --- */
+        .main-container {
+            flex: 1;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            padding: 20px;
+            background-image: linear-gradient(to bottom, #fff, #e3f2fd); /* Light Blue Fade */
+        }
+
+        .login-card {
+            background-color: #f0f8ff; /* Alice Blue (Light) instead of Pink */
+            border: 1px solid #0094DA; /* Doraemon Blue Border */
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,148,218,0.15);
+            position: relative;
+            text-align: center;
+        }
+
+        .login-logo {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+
+        .login-title {
+            color: #0094DA; /* Doraemon Blue */
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .login-subtitle {
+            color: #4b5563;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* --- Custom Inputs (The Pill Shape) --- */
+        .input-group-custom {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .input-icon-box {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-right: none;
+            padding: 10px 15px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            color: #9ca3af;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        .form-control-custom {
+            border: 1px solid #d1d5db;
+            border-left: none;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            height: 50px;
+            width: 100%;
+            padding-left: 10px;
+            outline: none;
+            color: #4b5563;
+        }
+
+        /* Focus State for Inputs */
+        .form-control-custom:focus {
+            border-color: #0094DA;
+        }
+        .input-group-custom:focus-within .input-icon-box {
+            border-color: #0094DA;
+            color: #0094DA;
+        }
+        
+        /* Eye Icon for Password */
+        .password-toggle {
+            position: absolute;
+            right: 20px;
+            color: #9ca3af;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* --- Buttons & Links --- */
+        .forgot-pass {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .forgot-pass a {
+            color: #0094DA;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .btn-submit {
+            background-color: #0094DA; /* Doraemon Blue */
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,148,218,0.3);
+        }
+        .btn-submit:hover {
+            background-color: #007bb5;
+            transform: translateY(-2px);
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        .register-link a {
+            color: #e60012; /* Doraemon's Nose/Collar Red */
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar-sticky">
+        <div class="nav-wrapper">
+            <div class="desktop-nav">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Doraemon Logo" class="nav-logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Characters</a>
+                    <a href="#" class="nav-link">Gadgets</a>
+                    <a href="#" class="nav-link">Movies</a>
+                    <button class="btn-login">Sign Up</button>
+                </div>
+            </div>
+
+            <div class="mobile-header">
+                <a href="#"><img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Logo" class="mobile-logo"></a>
+                <div class="mobile-actions">
+                    <button class="btn-lms-mobile">Watch</button>
+                    <button id="mobileMenuOpen" class="mobile-toggle-btn">
+                      <i class="fa-solid fa-bars" style="font-size:24px;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mobile-sidebar" id="mobileSidebar">
+                <button class="close-sidebar-btn" id="mobileMenuClose"><i class="fa-solid fa-xmark"></i></button>
+                <div class="sidebar-logo">
+                    <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Logo">
+                </div>
+                <div class="sidebar-links">
+                    <a href="Doraemon02-home.html" class="sidebar-link">Home</a>
+                    <a href="character.html" class="sidebar-link">Characters</a>
+                    <a href="gadget.html" class="sidebar-link">Gadgets</a>
+                    <a href="#" class="sidebar-link">Movies</a>
+                    <a href="#" class="nav-link">Fun Facts</a>
+                    <a href="#" class="sidebar-btn-login">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="main-container">
+        <div class="login-card">
+            <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Logo" class="login-logo">
+            
+            <h2 class="login-title">Welcome to the 22nd Century!</h2>
+            <p class="login-subtitle">Enter your ID to access the 4D Pocket.</p>
+            
+            <form onsubmit="event.preventDefault(); alert('Logging in...');">
+                
+                <div class="input-group-custom">
+                    <div class="input-icon-box">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <input type="text" class="form-control-custom" placeholder="User ID or Phone Number">
+                </div>
+
+                <div class="input-group-custom">
+                    <div class="input-icon-box">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <input type="password" id="passwordField" class="form-control-custom" placeholder="Secret Code">
+                    <i class="fa-solid fa-eye-slash password-toggle" id="togglePassword"></i>
+                </div>
+
+                <div class="forgot-pass">
+                    <a href="#">Forgot Secret Code?</a>
+                </div>
+
+                <button type="submit" class="btn-submit">Warp In <i class="fa-solid fa-rocket"></i></button>
+
+                <div class="register-link">
+                    Don't have an account? <a href="#">Join the Gang</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Password Toggle Logic
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#passwordField');
+
+        togglePassword.addEventListener('click', function (e) {
+            // Toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            // Toggle the eye icon
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileSidebar = document.getElementById('mobileSidebar');
+
+            if(mobileMenuOpen) mobileMenuOpen.addEventListener('click', () => mobileSidebar.classList.add('open'));
+            if(mobileMenuClose) mobileMenuClose.addEventListener('click', () => mobileSidebar.classList.remove('open'));
+        });
+    </script>
+
+</body>
+</html>

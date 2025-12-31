@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doraemon Characters - Meet the Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-bar" style="background: #f8f9fa; padding: 10px 0; border-bottom: 1px solid #eee;">
+        <div class="container top-bar-content" style="display:flex; justify-content:space-between; max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            <div class="contact-info">
+                <a href="#" style="text-decoration:none; color:#555; font-size: 14px;"><i class="fas fa-tv"></i> Watch on TV</a>
+            </div>
+            <div class="social-links">
+                <a href="#" style="text-decoration:none; color:#555; font-size: 14px; margin-left: 15px;"><i class="fab fa-facebook-f"></i> Fan Page</a>
+                <a href="#" style="text-decoration:none; color:#555; font-size: 14px; margin-left: 15px;"><i class="fab fa-youtube"></i> Episodes</a>
+            </div>
+        </div>
+    </div>
+
+<nav class="navbar-sticky">
+    <div class="nav-wrapper">
+        
+        <div class="desktop-nav">
+            <div class="logo-container">
+                <a href="#">
+                    <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Doraemon Logo" class="nav-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                    <span class="logo-fallback" style="display:none; color:#0094DA; font-weight:bold; font-size:24px;">Doraemon</span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link active">Characters</a>
+                <a href="#" class="nav-link">Gadgets</a>
+                <a href="#" class="nav-link">Movies</a>
+                <a href="#" class="nav-link">Gallery</a>
+                
+                <div class="icon-btn cart-btn">
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+
+                <button class="btn-login">Join Club</button>
+            </div>
+        </div>
+
+        <div class="mobile-header">
+            <a href="#">
+                <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Doraemon Logo" class="mobile-logo">
+            </a>
+            
+            <div class="mobile-actions">
+                <button class="btn-lms-mobile">Watch</button>
+
+<button id="mobileMenuOpen" class="mobile-toggle-btn">
+  <svg viewBox="0 0 24 24" width="28" height="28">
+    <line x1="3" y1="6" x2="21" y2="6" stroke="black" stroke-width="2"/>
+    <line x1="3" y1="12" x2="21" y2="12" stroke="black" stroke-width="2"/>
+    <line x1="3" y1="18" x2="21" y2="18" stroke="black" stroke-width="2"/>
+  </svg>
+</button>
+
+            </div>
+        </div>
+
+        <div class="mobile-sidebar" id="mobileSidebar">
+            <button class="close-sidebar-btn" id="mobileMenuClose">
+                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="sidebar-logo">
+                <img src="https://static.wikia.nocookie.net/logo-timeline/images/6/60/Doraemon_logo_manga_VN.png/revision/latest?cb=20181120001125" alt="Logo">
+            </div>
+
+            <div class="sidebar-links">
+                <a href="#" class="sidebar-link">Home</a>
+                <a href="#" class="sidebar-link active">Characters</a>
+                <a href="#" class="sidebar-link">Gadgets</a>
+                <a href="#" class="sidebar-link">Movies</a>
+                <a href="#" class="sidebar-link">Gallery</a>
+                
+                <a href="#" class="sidebar-btn-login">Join Club</a>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+    <div class="container">
+        <div class="row">
+
+    <div class="search-filter-container">
+    <div class="search-box-wrapper">
+        <input type="text" placeholder="Search for a character..." class="retina-search-input">
+    </div>
+
+    <div class="filter-buttons-row">
+        <div class="filter-chip active">All Characters</div>
+        <div class="filter-chip">Robots</div>
+        <div class="filter-chip">Humans</div>
+        <div class="filter-chip">Future</div>
+        <div class="filter-chip">Past</div>
+        <div class="filter-chip">Main Cast</div>
+        <div class="filter-chip dropdown">
+            More Options 
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+
+
+    <section class="courses-section-pagination">
+    <div class="container mx-auto px-4">
+        
+
+        <div id="paginated-list" class="course-grid-layout">
+            
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/06/doraemon-1979.jpg" alt="Doraemon">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Doraemon (The Robot Cat)</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> From the 22nd Century</li>
+                            <li><span class="spec-dot"></span> Loves Dorayaki (Pancakes)</li>
+                            <li><span class="spec-dot"></span> Has a 4D Magic Pocket</li>
+                            <li><span class="spec-dot"></span> Scared of Mice</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Gadgets</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://i.pinimg.com/736x/bf/eb/a8/bfeba832a872fef7b0426e3c314041d9.jpg" alt="Nobita" onerror="this.src='https://placehold.co/600x400?text=Nobita'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Nobita Nobi</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Kind but very lazy</li>
+                            <li><span class="spec-dot"></span> Bad at sports and tests</li>
+                            <li><span class="spec-dot"></span> Always asks for help</li>
+                            <li><span class="spec-dot"></span> Excellent at sharpshooting</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://i.pinimg.com/736x/d4/7d/ba/d47dbaed921e18dba2169a1b48ae551c.jpg" alt="Shizuka" onerror="this.src='https://placehold.co/600x400?text=Shizuka'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Shizuka Minamoto</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Smart and polite</li>
+                            <li><span class="spec-dot"></span> Loves playing piano</li>
+                            <li><span class="spec-dot"></span> Favorite food: Sweet Potatoes</li>
+                            <li><span class="spec-dot"></span> Nobita's future wife</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://static.wikia.nocookie.net/doraemon/images/6/6c/79_remake_Gian.png/revision/latest?cb=20230708141308&path-prefix=en" alt="Gian" onerror="this.src='https://placehold.co/600x400?text=Gian'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Takeshi "Gian" Goda</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Strong neighborhood bully</li>
+                            <li><span class="spec-dot"></span> Terrible singer</li>
+                            <li><span class="spec-dot"></span> Loves his sister Jaiko</li>
+                            <li><span class="spec-dot"></span> Afraid of his mother</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://i.pinimg.com/originals/48/97/1c/48971ce9eb6beed602b3a0af00628f67.jpg" alt="Suneo" onerror="this.src='https://placehold.co/600x400?text=Suneo'">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Suneo Honekawa</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Rich and boastful</li>
+                            <li><span class="spec-dot"></span> Has many expensive toys</li>
+                            <li><span class="spec-dot"></span> Gian's sidekick</li>
+                            <li><span class="spec-dot"></span> Shortest in the group</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-ribbon"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://static.wikia.nocookie.net/doraemon/images/5/5b/15-12-2019_%282%29.png/revision/latest?cb=20191215211854&path-prefix=en" alt="Dorami">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Dorami (Doraemon's Sister)</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Smarter than Doraemon</li>
+                            <li><span class="spec-dot"></span> Yellow robot cat</li>
+                            <li><span class="spec-dot"></span> Loves Melon Bread</li>
+                            <li><span class="spec-dot"></span> Lives in 22nd Century</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Gadgets</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://static.wikia.nocookie.net/doraemon/images/2/23/Dekisugi_movie.jpeg/revision/latest?cb=20221104001011&path-prefix=en" alt="Dekisugi">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Hidetoshi Dekisugi</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> The class genius</li>
+                            <li><span class="spec-dot"></span> Good at everything</li>
+                            <li><span class="spec-dot"></span> Nobita's rival</li>
+                            <li><span class="spec-dot"></span> Very kind and humble</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://static.wikia.nocookie.net/doraemon/images/9/9c/Sewashi_Nobi_567c.jpg/revision/latest?cb=20191113040216&path-prefix=en" alt="Sewashi">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Sewashi Nobi</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Nobita's great-grandson</li>
+                            <li><span class="spec-dot"></span> Sent Doraemon back in time</li>
+                            <li><span class="spec-dot"></span> Wants to improve future</li>
+                            <li><span class="spec-dot"></span> Owner of Doraemon</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://static.wikia.nocookie.net/doraemon/images/4/49/Lilulu.jpg/revision/latest?cb=20240407145939&path-prefix=en" alt="Sewashi">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Riruru</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Riruru is the character of a movie</li>
+                            <li><span class="spec-dot"></span> She appears at Steel troop movie</li>
+                            <li><span class="spec-dot"></span> Wants to capture the earth</li>
+                            <li><span class="spec-dot"></span> Later make friendship with nobita</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="card-floating-icon">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                </div>
+                <a href="#" class="card-main-link">
+                    <div class="card-thumbnail">
+                        <img src="https://i.pinimg.com/736x/14/d0/65/14d065e8942d36334f76ec3fba11deda.jpg" alt="Sewashi">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="course-title">Pipo</h3>
+                        <ul class="course-specs">
+                            <li><span class="spec-dot"></span> Pipo is the character of a movie</li>
+                            <li><span class="spec-dot"></span> He also appears in steel troops movie</li>
+                            <li><span class="spec-dot"></span> He is friend of riruru</li>
+                            <li><span class="spec-dot"></span> Looks like a pumpkin</li>
+                        </ul>
+                    </div>
+                </a>
+                <div class="card-footer">
+                    <a href="#" class="btn-details">View Profile</a>
+                    <button class="btn-enroll-now">See Story</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="pagination-controls">
+            <div class="button-box"></div>
+            </div>
+
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span style="color:white; font-size: 24px; font-weight: bold;">Doraemon</span>
+                </div>
+                <p class="app-download-text">Created by Fujiko F. Fujio</p>
+                <div class="app-links">
+                    <a href="#" target="_blank">
+                        <img src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" alt="Google Play" class="play-store-img">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Characters</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Gadgets</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Fun</h3>
+                <ul>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Wallpapers</a></li>
+                    <li><a href="#">Comics</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="contact-number">
+                    <p>Japan's #1 Robot Cat</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 1969-2025 Doraemon Fan Club</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="script2.js"></script>
+    <script>
+        
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+
+    // Open Menu
+    if(mobileMenuOpen) {
+        mobileMenuOpen.addEventListener('click', () => {
+            mobileSidebar.classList.add('open');
+        });
+    }
+
+    // Close Menu
+    if(mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', () => {
+            mobileSidebar.classList.remove('open');
+        });
+    }
+
+    // Close menu when clicking a link inside it
+    const sidebarLinks = document.querySelectorAll('.sidebar-link, .sidebar-btn-call, .sidebar-btn-login');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileSidebar.classList.remove('open');
+        });
+    });
+});
+
+    </script>
+
+</body>
+</html>
